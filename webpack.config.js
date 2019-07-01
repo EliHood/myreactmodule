@@ -1,16 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const htmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: path.join(__dirname, "dist/index.html"),
-    filename: "./index.html"
-});
+// const htmlWebpackPlugin = new HtmlWebpackPlugin({
+//     template: path.join(__dirname, "dist/index.html"),
+//     filename: "./index.html"
+// });
 module.exports = {
-  entry: './dist/index.js',
+  entry: './src/index.js',
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, './'),
     filename: 'index.js',
-    // libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2'
 
   },
    module: {
@@ -30,7 +30,7 @@ module.exports = {
     ]
   },
       
-  plugins: [htmlWebpackPlugin , new webpack.DefinePlugin({
+  plugins: [new webpack.DefinePlugin({
     'process.env': {
         NODE_ENV: JSON.stringify('development')
     }
